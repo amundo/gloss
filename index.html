@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>gloss</title>
+  <meta charset=utf-8>
+  <script src=js/jquery.js></script>
+  <link rel=stylesheet href="css/style.css" media=screen />
+  <link rel=stylesheet href="css/print.css" media=print />
+<style>
+textarea { 
+  width: 80%;
+}
+
+pre { 
+  bottom: 0;
+  position: absolute;
+}
+</style>
+</head>
+
+<body>
+
+  <textarea id=sentence></textarea>
+  <p><input type=text id=word></p>
+  <textarea id=translation></textarea>
+
+  <pre id=currentGloss></pre>
+
+</body>
+
+<script>
+function update(){
+  $('pre#currentGloss').html(JSON.stringify(window.gloss , null, 2) ) ;
+}
+
+(function($){
+
+  $.fn.linkWords = function(options){
+    options = $.extend({}, $.fn.linkWords.defaults, options);
+
+    var html = '',
+        words = options.tokenize($(this).html()) ;
+    
+    return this.each(function(){
+
+       $.each(words, function(i, word){
+         html += options.wordDelim + '<span>' + word + '</span>' ;
+       })
+
+       $(this).html(html)
+        
+    })
+   
+  };
+
+  $.fn.linkWords.defaults =  {
+    'tokenize' : function(text) { 
+      return text.split(' ' )
+     },
+    'wordDelim' :  ' ' 
+  };
+
+})(jQuery);
+
+
+(function($){
+
+  $.fn.textareafy = function(){
+
+    return this.each(function(){
+
+      var theid = $(this).attr('id'),
+          html  = $.trim($(this).html());
+      $(this).after( $('<textarea>', {'val': html, 'id': theid }) ).remove();
+
+    })
+   
+  }
+
+})(jQuery);
+
+(function($){
+
+  $.fn.paragraphize = function(){
+
+    return this.each(function(){
+
+      var theid = $(this).attr('id'),
+          html  = $.trim($(this).val());
+
+      $p =  $('<p>');
+      $(this).after( $p.html(html).attr('id', theid) ).remove();
+
+    })
+   
+  }
+
+})(jQuery);
+
+$(document).ready(function(){
+
+  window.gloss = {
+    sentence : '',
+    translation : '',
+    glosses : []
+  };
+
+  $('#sentence').keyup(function(ev){
+    if(ev.which == 13){
+      var sentence = $(this).val();
+          theid = $(this).attr('id');
+      gloss.sentence = $.trim(sentence);
+      update();
+      $(this).paragraphize();
+      $('#' + theid).linkWords(); 
+      return false;
+    }
+  })
+
+  $('#translation').keyup(function(ev){
+    if(ev.which == 13){
+      var translation = $(this).val();
+          theid = $(this).attr('id');
+      gloss.translation = $.trim(translation);
+      update();
+      $(this).paragraphize();
+      $('#' + theid).linkWords(); 
+      return false;
+    }
+  })
+
+})
+
+</script>
+
+</html>
+
