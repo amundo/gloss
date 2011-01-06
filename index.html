@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>gloss</title>
+  <meta charset=utf-8>
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+  <script src=js/jquery.js></script>
+  <script src=js/jquery.autogrow.js></script>
+  <script src=js/showdown.js></script>
+  <script src=js/site.js></script>
+  <link rel=stylesheet href="css/style.css" media=screen />
+  <link rel=stylesheet href="css/print.css" media=print />
+
+<style>
+</style>
+</head>
+
+<body>
+<h1>glossbin</h1>
+<div id=content>
+
+  <div id=editor>
+
+  <div id=menu>
+    <ul>
+    <li>project: <input type=text placeholder=""/></li>
+    <li><button id=name_project>save</button></li>
+    </ul>
+    <nav>
+    <span><button id=prev>&laquo;</button></span>
+    <span><button id=next>&raquo;</button></span>
+    </nav>
+  </div><!-- #controls -->
+
+    <p id=status>
+      <span id=Acount>0</span>
+      <span id=Bcount>0</span>
+    </p>
+    <textarea tabindex=1 id=A></textarea>
+    <textarea tabindex=2 id=B></textarea>
+
+    <div id=gloss></div>
+  </div><!-- #editor -->
+
+  <div id=controls>
+    <p><strong>Glossbin</strong> is a tool for building and sharing interlinear glosses.</p>
+    <p><button id=demo>tutorial</button></p>
+  </div><!-- #controls -->
+
+</div><!-- #content -->
+<footer>
+</footer>
+
+</body>
+</html>
+

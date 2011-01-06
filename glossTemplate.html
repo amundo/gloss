@@ -1,0 +1,18 @@
+<script id=glossTemplate type=html/x-jquery-tmpl>
+
+<li class=phrase>
+   <ol>
+     <li>
+       <p class=sentence>${sentence}</p>
+       {{each glosses}} 
+         <dl class=tier>
+           <dt class=word>${word}</dt>
+           <dd class=gloss>${gloss}</dd>
+         </dl>
+       {{/each}}
+       <p class=translation>${translation}</p>
+     </li>
+   </ol>
+</li>
+
+</script>
