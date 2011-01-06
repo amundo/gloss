@@ -1,0 +1,13 @@
+#A, #B { 
+  width: 80%;
+  font-size: large;
+  height: 10em;
+}
+
+#A { 
+  border-left: 10px solid blue;
+}
+
+#B { 
+  border-left: 10px solid yellow;
+}
