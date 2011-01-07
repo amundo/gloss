@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>gloss</title>
+  <title>glossbin</title>
   <meta charset=utf-8>
   <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
   <script src=js/jquery.js></script>
   <script src=js/jquery.autogrow.js></script>
+  <script src=js/jquery.tmpl.js></script>
   <script src=js/showdown.js></script>
   <script src=js/site.js></script>
   <link rel=stylesheet href="css/style.css" media=screen />
@@ -39,7 +40,9 @@
     <textarea tabindex=1 id=A></textarea>
     <textarea tabindex=2 id=B></textarea>
 
-    <div id=gloss></div>
+    <div id=gloss>
+    <ol id=phrases></ol>
+    </div>
   </div><!-- #editor -->
 
   <div id=controls>
@@ -50,6 +53,26 @@
 </div><!-- #content -->
 <footer>
 </footer>
+
+
+<script id=glossTemplate type=html/x-jquery-tmpl>
+
+<li class=phrase>
+   <ol>
+     <li>
+       <p class=sentence>${sentence}</p>
+       {{each glosses}} 
+         <dl class=tier>
+           <dt class=word>${word}</dt>
+           <dd class=morph>${morph}</dd>
+         </dl>
+       {{/each}}
+       <p class=translation>${translation}</p>
+     </li>
+   </ol>
+</li>
+
+</script>
 
 </body>
 </html>
