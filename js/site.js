@@ -1,71 +1,48 @@
 $(document).ready(function(){
 
-   function compare(){
-     var Acount = $('#A').val().split(/ +/).length;
-     $('#Acount').html(Acount);
-     var Bcount = $('#B').val().split(/ +/).length;
-     $('#Bcount').html(Bcount);
-     if(Acount == Bcount) 
-       $('#status span').addClass('sameLength');
-     return Acount == Bcount;
-   }
+  $('#box').autogrow();
 
-   function zip(a,b){
-     var zipped = [];
-     for(var i=0;i<a.length;i++){
-       zipped.push( [a[i], b[i]] ) ; 
-     } 
-     return zipped;
-   }
+  var chunks = [],
+      gloss = {},
+      text = $('#box').val(),
+      lines = $.trim(text).split(/\n\n+/),
+      sentence = lines.shift(),
+      translation = lines.pop(),
+      stanza = lines.join('\n\n');
 
-   function makePairs(){
-     var Awords = $.trim($('#A').val()).split(/ +/);
-     var Bwords = $.trim($('#B').val()).split(/ +/);
-     return zip(Awords, Bwords);
-   }
+  function parseGlosses(stanza){
+    var pairs = stanza.split(/\n\n+/),
+        glosses = [];
 
-   function assembleGlosses(pairs){
-    
-     var glosses = [];
-     for(var i=0;i<pairs.length;i++){
-       var word = pairs[i][0];
-       var morph = pairs[i][1];
+    $.each(pairs, function(i, pair){
+      var parts = $.trim(pair).split(/\n/),
+          word = $.trim(parts[0]),
+          morph = $.trim(parts[1]);
+     
+      glosses.push(
+        {'word': word, 'morph': morph}
+      );
+    }) 
 
-       glosses.push(
-         {'word': word, 'morph': morph}
-       );
+    return glosses;
+  }
 
-     }
-     return glosses;
-   }
+  gloss = {
+    'sentence' : sentence,
+    'translation' : translation,
+    'glosses' : parseGlosses(stanza)
+  }
+     
+  if (console.log) { 
+    console.log('sentence: ' + sentence);
+    console.log('translation: ' + translation);
+    console.log(gloss);
+  }
 
-   compare();
 
-   function renderGloss(gloss){
-     $("#gloss").html($( "#glossTemplate" ).tmpl( gloss ));
-   }
+  $('#box').keydown(function(){
 
-   $('#A, #B').keydown(function(ev){
-     $this = $(this);
-     if (ev.which ==  13){
-       if(compare()){
 
-         var pairs = makePairs();
-         var glosses = assembleGlosses(pairs);
-
-         gloss = {
-           'glosses' : glosses,
-           'sentence' : $('#A').val(),
-           'translation' : $('#B').val()
-         };
-
-         renderGloss(gloss);
- 
-         $this.val($.trim($this.val()));
-
-         return false; 
-       } 
-     } 
-   })
+  })
 
 })

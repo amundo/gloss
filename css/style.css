@@ -8,28 +8,19 @@ body {
   width: 750px;
 }
 
-
-#A, #B { 
+#box { 
   border : 1px solid black;
-  height: 3em;
   padding: .5em;
-  width: 650px;
+  width: 500px;
 }
 
-#A { 
+#box { 
   border-left: 10px solid blue;
   font-size: x-large;
 }
 
-#B { 
-  border-left: 10px solid purple;
-  font-size: normal;
-  font-family: monospace;
-}
-
 #content { 
-  width: 1000px;
-  margin: 0 auto;
+  margin: 0 1em;
   border-top: 2px solid black;
   overflow: auto;
 }
