@@ -5,7 +5,7 @@ body {
 #editor{
   padding: 0 4px; 
   float: left;
-  width: 700px;
+  width: 45%;
 }
 
 #box { 
@@ -27,7 +27,7 @@ body {
 
 #controls { 
   float: right;
-  width: 500px; 
+  width: 45%; 
   float:right;
   padding: 0 1em; 
   overflow: auto;
@@ -96,6 +96,11 @@ nav {
 .sameLength { 
   background: green;
   color: white;
+}
+
+#gloss { 
+  position: fixed;
+  top: 0;
 }
 
 /* gloss css */

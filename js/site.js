@@ -47,7 +47,8 @@ $(document).ready(function(){
 
 
   $('#box').keydown(function(event){
-    if ( event.which == 13 && event.shiftKey ) {
+    //if ( event.which == 13 && event.shiftKey ) {
+    if ( event.which == 27 ) {
       gloss = renderGloss();
       $("#gloss").html($( "#glossTemplate" ).tmpl( gloss ));
     }
