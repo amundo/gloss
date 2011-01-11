@@ -58,10 +58,9 @@ h1 {
 }
 
 #menu  { 
-  display:none;
-  border-bottom: 1px solid black;
   font-size: small;
   margin-bottom: 5px;
+  float:left;
   padding: 0; 
   overflow:auto;
 }

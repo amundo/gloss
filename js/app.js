@@ -39,3 +39,34 @@ Glossbin.saveGloss = function (gloss){
 Glossbin.init();
 
 */
+
+/*
+var Gloss = {
+
+  getProjectName : function(){
+    return 'kashaya'
+  },
+  projectIndex = function(){
+    if 
+  },
+
+}
+
+
+var Project = {
+  index = [],
+  current = index[0],
+  name = 'kashaya',
+  save = function(){
+    localStorage[this.name] = JSON.stringify(this)
+  }
+}
+
+
+if(gloss.id){
+  localStorage[gloss.id] = JSON.stringify(gloss);
+} else { 
+  var projectList = JSON.parse(localStorage.project)
+  localStorage[project].push(gloss.id);
+
+*/
