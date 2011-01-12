@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+  $('#box').focus();
+
   $('#box').autogrow();
 
   function renderGloss(){

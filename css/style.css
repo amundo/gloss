@@ -20,7 +20,6 @@ body {
 }
 
 #box { 
-  border-left: 10px solid blue;
   font-size: x-large;
 }
 
@@ -29,7 +28,7 @@ body {
   overflow: auto;
 }
 
-#controls { 
+#output { 
   float: right;
   width: 45%; 
   float:right;
@@ -107,7 +106,6 @@ nav {
 }
 
 #gloss { 
-  position: fixed;
   top: 0;
 }
 
