@@ -61,9 +61,12 @@ $(document).ready(function(){
     }
 
     index = JSON.parse(localStorage.glossIndex);
-    index.push(gloss.uuid);
+    if(index.indexOf(gloss.id)){
+      index.push(gloss.uuid);
+    }
     localStorage.glossIndex = JSON.stringify(index);
-    localStorage['gloss_' + gloss.uuid] = JSON.stringify(gloss);
+    localStorage[$('#current_project').val() + gloss.uuid] = JSON.stringify(gloss);
+*/
  
   }
 

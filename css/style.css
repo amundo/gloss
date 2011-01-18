@@ -6,15 +6,16 @@ body {
   padding: 0;
 }
   
-
 #editor{
   padding: 0 4px; 
   float: left;
   width: 45%;
+  overflow: hidden;
 }
 
 #box { 
   border : 1px solid black;
+  padding: 1em;
   padding: .5em;
   width: 500px;
 }
